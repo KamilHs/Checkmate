@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none !important;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+#board-container {
+    width: 80vw;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.cell {
+    float: left;
+    position: relative;
+    background-size: 100% 100%;
+}
+
+.label {
+    position: absolute;
+}
+
+.letter {
+    bottom: 0;
+    left: 0;
+}
+
+.number {
+    top: 0;
+    right: 0;
+}
+
+.selected {
+    background-color: rgb(130, 151, 105) !important;
+}
+
+.circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    height: 30%;
+    border-radius: 50%;
+    background-color: rgb(130, 151, 105);
+}
+
+.possible::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(130, 151, 105, 0.4);
+    opacity: 0;
+}
+
+.possible:hover .circle {
+    opacity: 0;
+}
+
+.possible:hover::after {
+    opacity: 1;
+}
+
+.checked {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    box-shadow: 0px 0px 20px 5px red;
+    background-color: red;
+    width: 50%;
+    height: 50%;
+}
+
+#promotion-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#promotion-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#selection {
+    position: absolute;
+    display: flex;
+    background-color: #fff;
+}
+
+#selection::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+.center::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.top::after {
+    bottom: 100%;
+    border-color: transparent transparent white transparent;
+    border-width: 0 20px 60px 20px;
+}
+
+.bottom::after {
+    top: 100%;
+    border-color: white transparent transparent transparent;
+    border-width: 60px 20px 0 20px;
+}
+
+.left::after {
+    left: 0;
+}
+
+.right::after {
+    right: 0;
+}
+
+.selection-block {
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.selection-block:hover {
+    background-color: rgb(130, 151, 105) !important;
+}
+
+.selection-block img {
+    width: 100%;
+}
+
+.hidden {
+    opacity: 0 !important;
+    pointer-events: none;
+}
+
+#endgame-info {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(185, 114, 8, 0.568);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.last-move {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(155, 199, 0, 0.41);
+}
